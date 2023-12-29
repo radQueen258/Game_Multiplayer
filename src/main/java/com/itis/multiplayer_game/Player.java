@@ -8,14 +8,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
-import java.awt.*;
+
 
 public class Player {
 
     private double x, y, width, height;
     private Color color;
     private Rectangle rectangle;
-    private Point point;
     private String username;
     private BufferedReader input;
     private PrintWriter output;

@@ -2,6 +2,8 @@ package com.itis.multiplayer_game;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -14,7 +16,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.awt.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,9 +37,7 @@ public class Game extends Application {
 
 
     private GraphicsContext gc;
-    private Player player1;
-    private Player player2;
-    private Player player3;
+    private Player player1, player2,player3;
     private Player[] players = new Player[] {player1, player2, player3};
     private Image fruitImage;
     private Image defaultImage;
@@ -46,12 +46,23 @@ public class Game extends Application {
     private boolean gameOver;
     private int currentDirection;
     private int score = 0;
+
+
+    //For drirection
+    private BooleanProperty Wup = new SimpleBooleanProperty();
+    private BooleanProperty Sdown = new SimpleBooleanProperty();
+    private BooleanProperty Aleft = new SimpleBooleanProperty();
+    private BooleanProperty Dright = new SimpleBooleanProperty();
+
+    private int movementVariable = 5;
+
+
     @Override
     public void start(Stage stage) throws IOException {
 //        FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("hello-view.fxml"));
 //        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
-        stage.setTitle("Snake");
+        stage.setTitle("Fruit Hunt");
         Group root = new Group();
         Canvas canvas = new Canvas(WIDTH, HEIGHT);
         root.getChildren().add(canvas);
@@ -59,6 +70,7 @@ public class Game extends Application {
         stage.setScene(scene);
         stage.show();
         gc = canvas.getGraphicsContext2D();
+        drawBackground(gc);
 
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -117,7 +129,7 @@ public class Game extends Application {
                 if ((i + j) % 2 ==  0) {
                     gc.setFill(Color.GRAY);
                 } else {
-                    gc.setFill(Color.GOLD);
+                    gc.setFill(Color.WHITE);
                 }
                 gc.fillRect(i * SQUARE_SIZE, j * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
             }
@@ -136,19 +148,6 @@ public class Game extends Application {
     }
 
 
-
-//    private void moveRight1() {
-//        player1.moveX(1);
-//    }
-//    private void moveLeft1() {
-//        player1.moveX(-1);
-//    }
-//    private void moveUp1() {
-//        player1.moveY(1);
-//    }
-//    private void moveDown1() {
-//        player1.moveY(-1);
-//    }
 
     private void moveRight() {
         for (int i = 0; i < players.length; i ++) {
@@ -170,38 +169,6 @@ public class Game extends Application {
             players[i].moveY(-1);
         }
     }
-
-
-
-
-//    private void moveRight2() {
-//        player2.moveX(1);
-//    }
-//    private void moveLeft2() {
-//        player2.moveX(-1);
-//    }
-//    private void moveUp2() {
-//        player2.moveY(1);
-//    }
-//    private void moveDown2() {
-//        player2.moveY(-1);
-//    }
-
-
-//    private void moveRight3() {
-//        player3.moveX(1);
-//    }
-//    private void moveLeft3() {
-//        player3.moveX(-1);
-//    }
-//    private void moveUp3() {
-//        player3.moveY(1);
-//    }
-//    private void moveDown3() {
-//        player3.moveY(-1);
-//    }
-
-
 
 
     public static void main(String[] args) {

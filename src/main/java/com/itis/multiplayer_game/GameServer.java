@@ -32,8 +32,6 @@ public class GameServer {
                     Thread thread = new Thread(playerHandler);
                     thread.start();
                 }
-//                Socket socket = serverSocket.accept();
-//                System.out.println("New Player");
             }
             System.out.println("No longer accepting connections");
         } catch (IOException e) {
@@ -41,22 +39,6 @@ public class GameServer {
         }
     }
 
-//    public void acceptPlayers() {
-//        try {
-//            System.out.println("Waiting for more players...");
-//
-//            while (numPlayers < maxPlayers) {
-//                Socket socket = serverSocket.accept();
-//                DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-//
-//                numPlayers ++;
-//                dataOutputStream.writeInt(numPlayers);
-//                System.out.println("Player #" + numPlayers + " has connected");
-//            }
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     public static void main(String[] args) throws IOException{
         ServerSocket serverSocket = new ServerSocket(8888);
