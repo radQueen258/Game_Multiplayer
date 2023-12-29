@@ -34,8 +34,8 @@ public class GameServer {
                 }
 //                Socket socket = serverSocket.accept();
 //                System.out.println("New Player");
-
             }
+            System.out.println("No longer accepting connections");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -59,7 +59,7 @@ public class GameServer {
 //    }
 
     public static void main(String[] args) throws IOException{
-        ServerSocket serverSocket = new ServerSocket(1234);
+        ServerSocket serverSocket = new ServerSocket(8888);
         GameServer gameServer = new GameServer(serverSocket);
         gameServer.startServer();
     }

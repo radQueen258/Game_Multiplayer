@@ -1,0 +1,31 @@
+-----------------------------------RADKA 29.12.2023-------03h55am-----------------
+
+I tried to implement the logic of multiplayer game before creating the real game
+because I thought it was the more difficult part.
+I did not only look at the code @Erfan sent but as well as the code form the teacher,
+we can notice that in @Erfan's code there is no clientHandler class and all the taking care of the
+client side is taken care of in the GameServer.
+
+In this code you will find:
+
+-PlayerHandler class which takes care of the actions performed by the player and the functionality 'Thread'
+which makes it possible for players to hang around together.
+-GameServer class which acts as the server obviously.
+-Player class which takes care of the creation of a player, in @Erfan's code we only had two players
+but as I was talking to the teacher the other day he mentioned that because we are 3 then 3 of us should play.
+I kept the logic that the socket should stop accepting connections after a certain number of players is reached.
+-Game class which is supposed to be the actual game with the game logic, this is where I got some issues because
+the code @Erfan showed was only taking the keys AWSD as the coordinates for movement so I trid to make the normal
+UP, DOWN, LEFT, RIGHT keys work but I guess that I couldn't.
+In the snakeGame I created I used the java.awt.Point to get the coordinates of where the player was located and it made
+easy to implement the gameOver(), move(),grabFruit() to earn point, so I tried to use again the java.awt.Point but it is
+giving me errors so I wouldn't advise it.
+
+I got an idea for the general goal of the game as to make it much more simplier.
+When the game starts and the three players are on the goal is to grab the fruits that will randomly appear on the screen
+so if the colide with each other is game over but the one with more points wins.
+
+I already know how to make the showing of point and game over bla bla bla, right now our biggest challenge is to get the
+players moving with all the keys from the keyboard not only letters and make sure that we can locate the player as to
+implement the gameOver().
+---------------------------------------------------------------------------------------
